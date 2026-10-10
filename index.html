@@ -38,20 +38,17 @@
   a { color: var(--pink-700); }
 
   /* ---------- トップ ---------- */
-  .hero { max-width: 900px; margin: 0 auto; padding: 16px 12px 0; }
-  .hero img {
-    display: block; width: 100%; height: auto;
-    border-radius: 24px;
-    box-shadow: 0 8px 28px rgba(230, 82, 138, 0.22);
-    border: 3px solid #fff;
-  }
+  .hero { margin: 0; padding: 0; }
+  .hero img { display: block; width: 100%; height: auto; }
   .period {
     text-align: center;
     margin: 20px 12px 4px;
   }
   .period span {
     display: inline-block;
-    padding: 8px 26px;
+    padding: 8px 20px;
+    font-size: clamp(0.78rem, 3.6vw, 1rem);
+    white-space: nowrap;
     background: #fff;
     border: 2px dashed var(--pink-400);
     border-radius: 999px;
@@ -95,7 +92,7 @@
     color: var(--pink-700);
     line-height: 1.5;
   }
-  h2::before { content: "♡ "; color: var(--pink-400); }
+  h2::before { content: "🍀 "; }
   p { margin: 0 0 12px; }
   ul, ol { padding-left: 1.3em; margin: 0 0 12px; }
   li { margin: 6px 0; }
@@ -118,13 +115,14 @@
   .goal { font-size: 0.95rem; }
 
   /* 実施予定 */
-  .plan li { list-style: none; position: relative; padding-left: 1.4em; }
+  .plan li { list-style: none; position: relative; padding-left: 1em; }
   .plan { padding-left: 0; }
-  .plan li::before { content: "🎀"; position: absolute; left: 0; }
+  .plan li::before { content: "・"; position: absolute; left: 0; }
 
   /* 写真 */
   .photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
   .photos .ph {
+    position: relative; overflow: hidden;
     aspect-ratio: 4 / 3;
     display: flex; align-items: center; justify-content: center; text-align: center;
     background: var(--pink-50);
@@ -135,7 +133,9 @@
     line-height: 1.4;
     padding: 6px;
   }
-  .photos img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; display: block; }
+  .photos a.ph { text-decoration: none; transition: transform .15s; }
+  .photos a.ph:hover { transform: translateY(-3px); }
+  .photos img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
   @media (max-width: 520px) { .photos { grid-template-columns: 1fr; } }
 
   /* 金額・支払い */
@@ -147,7 +147,9 @@
     border-radius: 999px;
     font-weight: 700; color: var(--pink-700);
   }
+  .chips.pay { flex-direction: column; align-items: flex-start; gap: 10px; }
   .chips.pay li { background: #fff; }
+  .goal-amount { font-size: clamp(1.9rem, 8vw, 2.6rem); font-weight: 700; color: var(--pink-700); line-height: 1.3; margin: 0 0 12px; }
 
   .notice-box {
     background: var(--pink-50);
@@ -186,7 +188,7 @@
   <img src="top.jpg" alt="#HAPPYLINDAY 中国×日本 センイルプロジェクト2026 支援金ご協力のお願い" width="1200" height="675">
 </header>
 
-<p class="period"><span>期間:2026年10月17日(土)〜11月20日(金)</span></p>
+<p class="period"><span>募集期間:2026年10月17日(土)〜11月20日(金)</span></p>
 
 <nav>
   <a href="#about">企画について</a>
@@ -208,11 +210,10 @@
 
   <section id="status" class="status">
     <h2>現在の状況</h2>
-    <!-- ↓ 支援額が増えたら、次の2か所を書き換えてください
-         ① 金額(0 の部分)  ② バーの長さ(width: 0% の部分。 支援額÷95,000 のパーセント) -->
-    <div class="amount">0<small> 円</small></div>
-    <div class="bar" role="img" aria-label="目標95,000円に対する達成率"><i style="width: 0%"></i></div>
-    <p class="goal">目標 95,000円 ／ <span class="small">2026年10月10日現在</span></p>
+    <!-- 金額と日付は status.js を書き換えるだけで、ここは自動で変わります -->
+    <div class="amount"><span id="amount">0</span><small> 円</small></div>
+    <div class="bar" role="img" aria-label="目標95,000円に対する達成率"><i id="barfill" style="width: 0%"></i></div>
+    <p class="goal">目標 95,000円 ／ <span class="small"><span id="updated">2026年10月10日</span>現在</span></p>
   </section>
 
   <section id="plan" class="plan">
@@ -227,13 +228,12 @@
 
   <section id="results">
     <h2>中国ファンダムによる昨年度の実施実績(一部抜粋)</h2>
-    <!-- ↓ 写真3枚の入れ方:
-         GitHubに result1.jpg / result2.jpg / result3.jpg をアップロードしたら、
-         下の <div class="ph">…</div> を <img src="result1.jpg" alt="昨年度の実施実績 1"> に置き換えてください。 -->
+    <!-- result1.jpg / result2.jpg / result3.jpg をGitHubにアップロードすれば、自動で表示されます。
+         各写真をタップすると、Xの該当投稿が新しいタブで開きます。 -->
     <div class="photos">
-      <div class="ph">写真1<br>(準備中)</div>
-      <div class="ph">写真2<br>(準備中)</div>
-      <div class="ph">写真3<br>(準備中)</div>
+      <a class="ph" href="https://x.com/LIN1230_CNFC/status/2002923969775878549?s=20" target="_blank" rel="noopener noreferrer">写真1<br>(準備中)<img src="result1.jpg" alt="昨年度の実施実績 1(Xの投稿を開く)" onerror="this.style.display='none'"></a>
+      <a class="ph" href="https://x.com/LIN1230_CNFC/status/2005775380385558841?s=20" target="_blank" rel="noopener noreferrer">写真2<br>(準備中)<img src="result2.jpg" alt="昨年度の実施実績 2(Xの投稿を開く)" onerror="this.style.display='none'"></a>
+      <a class="ph" href="https://x.com/LIN1230_CNFC/status/2005617417997967535?s=20" target="_blank" rel="noopener noreferrer">写真3<br>(準備中)<img src="result3.jpg" alt="昨年度の実施実績 3(Xの投稿を開く)" onerror="this.style.display='none'"></a>
     </div>
   </section>
 
@@ -247,7 +247,7 @@
 
   <section id="goal">
     <h2>目標金額</h2>
-    <p class="em" style="font-size:1.3rem;">日本NovAで 95,000円</p>
+    <p class="goal-amount">日本NovAで 95,000円</p>
     <p>支援金は全て中国ファンダムへ送金し、NouerA LINのセンイルプロジェクトに使用されます。目標金額に満たない場合でも、プロジェクトを実施します。</p>
   </section>
 
@@ -267,9 +267,6 @@
       <li>メルペイ</li>
       <li>銀行振込</li>
     </ul>
-    <div class="notice-box">
-      ご支援のお申し込み・お支払い先のご案内は、日本窓口担当「音」(<a href="https://x.com/l_im_LINLIN" target="_blank" rel="noopener">@l_im_LINLIN</a>)へのXのDMでお願いします。
-    </div>
     <p class="small" style="margin-top:12px;">※一度ご支援いただいた内容をキャンセルすることはできません。</p>
   </section>
 
@@ -288,14 +285,25 @@
   <section id="contact" class="center">
     <h2>お問い合わせ</h2>
     <p>日本窓口担当:音(<a href="https://x.com/l_im_LINLIN" target="_blank" rel="noopener">@l_im_LINLIN</a>)まで<br>XのDMでご連絡ください</p>
-    <a class="btn" href="https://x.com/l_im_LINLIN" target="_blank" rel="noopener">Xを開く</a>
   </section>
 
 </main>
 
 <footer>
-  <p>#HAPPYLINDAY<br>Made with ♡ by NovA</p>
+  <p>#HAPPYLINDAY</p>
 </footer>
+
+<script src="status.js"></script>
+<script>
+  // status.js の値を画面に反映します(触らなくてOK)
+  (function () {
+    var GOAL = 95000;
+    var amt = (typeof SUPPORT_AMOUNT === "number") ? SUPPORT_AMOUNT : 0;
+    document.getElementById("amount").textContent = amt.toLocaleString("ja-JP");
+    document.getElementById("barfill").style.width = Math.min(100, amt / GOAL * 100) + "%";
+    if (typeof UPDATED_DATE === "string") document.getElementById("updated").textContent = UPDATED_DATE;
+  })();
+</script>
 
 </body>
 </html>
