@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🇨🇳×🇯🇵 LINセンイルプロジェクト2026 支援金ご協力のお願い</title>
+<meta name="description" content="NouerA LINのセンイルプロジェクト2026(中国×日本)支援金ご協力のお願い。期間:2026年10月17日〜11月20日">
+<meta property="og:title" content="#HAPPYLINDAY センイルプロジェクト2026">
+<meta property="og:description" content="支援金ご協力のお願い|期間:2026年10月17日(土)〜11月20日(金)">
+<meta property="og:image" content="top.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink-50: #fff6f9;
+    --pink-100: #ffe6ef;
+    --pink-200: #ffcade;
+    --pink-400: #f77fae;
+    --pink-600: #e6528a;
+    --pink-700: #c93b74;
+    --text: #5e3445;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body {
+    margin: 0;
+    font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(circle at 8% 6%, var(--pink-100) 0, transparent 38%),
+      radial-gradient(circle at 92% 28%, var(--pink-200) 0, transparent 34%),
+      var(--pink-50);
+    line-height: 1.9;
+    font-size: 16px;
+  }
+  a { color: var(--pink-700); }
+
+  /* ---------- トップ ---------- */
+  .hero { max-width: 900px; margin: 0 auto; padding: 16px 12px 0; }
+  .hero img {
+    display: block; width: 100%; height: auto;
+    border-radius: 24px;
+    box-shadow: 0 8px 28px rgba(230, 82, 138, 0.22);
+    border: 3px solid #fff;
+  }
+  .period {
+    text-align: center;
+    margin: 20px 12px 4px;
+  }
+  .period span {
+    display: inline-block;
+    padding: 8px 26px;
+    background: #fff;
+    border: 2px dashed var(--pink-400);
+    border-radius: 999px;
+    font-weight: 700;
+    color: var(--pink-700);
+  }
+
+  /* ---------- ナビ ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 6px;
+    padding: 8px 10px;
+    margin-top: 16px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 2px solid var(--pink-100);
+  }
+  nav a {
+    color: var(--pink-700);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  nav a:hover { background: var(--pink-100); }
+
+  /* ---------- 本文 ---------- */
+  main { max-width: 760px; margin: 0 auto; padding: 8px 16px 48px; }
+  section {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 26px 24px;
+    margin: 26px 0;
+    box-shadow: 0 6px 20px rgba(230, 82, 138, 0.12);
+    border: 2px solid var(--pink-100);
+  }
+  h2 {
+    margin: 0 0 14px;
+    font-size: 1.3rem;
+    color: var(--pink-700);
+    line-height: 1.5;
+  }
+  h2::before { content: "♡ "; color: var(--pink-400); }
+  p { margin: 0 0 12px; }
+  ul, ol { padding-left: 1.3em; margin: 0 0 12px; }
+  li { margin: 6px 0; }
+  .small { font-size: 0.9rem; opacity: 0.9; }
+  .em { font-weight: 700; color: var(--pink-700); }
+
+  /* 現在の状況 */
+  .status { text-align: center; }
+  .status .amount { font-size: 2.2rem; font-weight: 700; color: var(--pink-700); line-height: 1.3; }
+  .status .amount small { font-size: 1rem; color: var(--text); font-weight: 500; }
+  .bar {
+    height: 18px; border-radius: 999px; background: var(--pink-100);
+    overflow: hidden; margin: 10px 0 6px;
+  }
+  .bar i {
+    display: block; height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--pink-400), var(--pink-600));
+    border-radius: 999px;
+  }
+  .goal { font-size: 0.95rem; }
+
+  /* 実施予定 */
+  .plan li { list-style: none; position: relative; padding-left: 1.4em; }
+  .plan { padding-left: 0; }
+  .plan li::before { content: "🎀"; position: absolute; left: 0; }
+
+  /* 写真 */
+  .photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .photos .ph {
+    aspect-ratio: 4 / 3;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    background: var(--pink-50);
+    border: 2px dashed var(--pink-200);
+    border-radius: 14px;
+    color: var(--pink-600);
+    font-size: 0.8rem;
+    line-height: 1.4;
+    padding: 6px;
+  }
+  .photos img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; display: block; }
+  @media (max-width: 520px) { .photos { grid-template-columns: 1fr; } }
+
+  /* 金額・支払い */
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; }
+  .chips li {
+    margin: 0; padding: 8px 20px;
+    background: var(--pink-100);
+    border: 2px solid var(--pink-200);
+    border-radius: 999px;
+    font-weight: 700; color: var(--pink-700);
+  }
+  .chips.pay li { background: #fff; }
+
+  .notice-box {
+    background: var(--pink-50);
+    border-left: 5px solid var(--pink-400);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin: 12px 0 0;
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--pink-600);
+    color: #fff;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(230, 82, 138, 0.3);
+  }
+  .btn:hover { background: var(--pink-700); }
+  .center { text-align: center; }
+
+  footer {
+    text-align: center;
+    padding: 24px 16px 44px;
+    font-size: 0.85rem;
+    color: var(--pink-700);
+  }
+</style>
+</head>
+<body>
+
+<!-- ▼トップ -->
+<header class="hero">
+  <img src="top.jpg" alt="#HAPPYLINDAY 中国×日本 センイルプロジェクト2026 支援金ご協力のお願い" width="1200" height="675">
+</header>
+
+<p class="period"><span>期間:2026年10月17日(土)〜11月20日(金)</span></p>
+
+<nav>
+  <a href="#about">企画について</a>
+  <a href="#status">現在の状況</a>
+  <a href="#plan">実施予定</a>
+  <a href="#goal">目標金額</a>
+  <a href="#how">支援方法</a>
+  <a href="#trust">透明性</a>
+  <a href="#return">リターン</a>
+  <a href="#contact">お問い合わせ</a>
+</nav>
+
+<main>
+
+  <section id="about">
+    <h2>企画について</h2>
+    <p>本プロジェクトの企画者は、中国リンファンダムの「林韩中LIN_Lumanual」(<a href="https://x.com/LIN1230_CNFC" target="_blank" rel="noopener">@LIN1230_CNFC</a>)です。日本窓口は「音」(<a href="https://x.com/l_im_LINLIN" target="_blank" rel="noopener">@l_im_LINLIN</a>)が担当いたします。</p>
+  </section>
+
+  <section id="status" class="status">
+    <h2>現在の状況</h2>
+    <!-- ↓ 支援額が増えたら、次の2か所を書き換えてください
+         ① 金額(0 の部分)  ② バーの長さ(width: 0% の部分。 支援額÷95,000 のパーセント) -->
+    <div class="amount">0<small> 円</small></div>
+    <div class="bar" role="img" aria-label="目標95,000円に対する達成率"><i style="width: 0%"></i></div>
+    <p class="goal">目標 95,000円 ／ <span class="small">2026年10月10日現在</span></p>
+  </section>
+
+  <section id="plan" class="plan">
+    <h2>センイルプロジェクト実施予定</h2>
+    <ul class="plan">
+      <li>所属事務所近辺での広告掲示</li>
+      <li>中国国内でのサポート企画</li>
+      <li>b.stageでの広告掲示 等</li>
+    </ul>
+    <p class="small">※あくまで現時点での予定です</p>
+  </section>
+
+  <section id="results">
+    <h2>中国ファンダムによる昨年度の実施実績(一部抜粋)</h2>
+    <!-- ↓ 写真3枚の入れ方:
+         GitHubに result1.jpg / result2.jpg / result3.jpg をアップロードしたら、
+         下の <div class="ph">…</div> を <img src="result1.jpg" alt="昨年度の実施実績 1"> に置き換えてください。 -->
+    <div class="photos">
+      <div class="ph">写真1<br>(準備中)</div>
+      <div class="ph">写真2<br>(準備中)</div>
+      <div class="ph">写真3<br>(準備中)</div>
+    </div>
+  </section>
+
+  <section id="policy">
+    <h2>企画の進め方</h2>
+    <ul>
+      <li>企画内容、掲示スケジュール、デザイン等は、全て中国ファンダム「林韩中LIN_Lumanual」(<a href="https://x.com/LIN1230_CNFC" target="_blank" rel="noopener">@LIN1230_CNFC</a>)にて検討を進めています。</li>
+      <li>今年は、応援の気持ちが一層伝わるよう、より長期間の掲載、そしてより特別な広告枠を検討中です。</li>
+    </ul>
+  </section>
+
+  <section id="goal">
+    <h2>目標金額</h2>
+    <p class="em" style="font-size:1.3rem;">日本NovAで 95,000円</p>
+    <p>支援金は全て中国ファンダムへ送金し、NouerA LINのセンイルプロジェクトに使用されます。目標金額に満たない場合でも、プロジェクトを実施します。</p>
+  </section>
+
+  <section id="how">
+    <h2>金額について</h2>
+    <ul class="chips">
+      <li>1,000円</li>
+      <li>3,000円</li>
+      <li>5,000円</li>
+      <li>10,000円</li>
+      <li>20,000円</li>
+    </ul>
+
+    <h2 style="margin-top:22px;">お支払い方法について</h2>
+    <ul class="chips pay">
+      <li>PayPay(マネーライトも可)</li>
+      <li>メルペイ</li>
+      <li>銀行振込</li>
+    </ul>
+    <div class="notice-box">
+      ご支援のお申し込み・お支払い先のご案内は、日本窓口担当「音」(<a href="https://x.com/l_im_LINLIN" target="_blank" rel="noopener">@l_im_LINLIN</a>)へのXのDMでお願いします。
+    </div>
+    <p class="small" style="margin-top:12px;">※一度ご支援いただいた内容をキャンセルすることはできません。</p>
+  </section>
+
+  <section id="trust">
+    <h2>支援金の透明性について</h2>
+    <p>今回は目標金額とクラファンサイト手数料の割合を考慮し、サイトを通さずに支援金をいただきます。皆様のご支援を最大限有効に活用するための判断です。ご理解いただけますと幸いです。</p>
+    <p>なお透明性および信頼性担保のため、ご支援額は中国担当者と共有の上、進行する予定です。またご支援確認のご連絡・中国への送金後の金額報告・イベント終了後の収支報告を行います。</p>
+  </section>
+
+  <section id="return">
+    <h2>リターン</h2>
+    <p>中国ファンダムにて、センイルプロジェクトの内容と支援者リストをまとめて、本人へ届ける予定です。</p>
+    <p>ご支援金額の高い方から順に記載を予定しています。匿名でのご支援も可能です。</p>
+  </section>
+
+  <section id="contact" class="center">
+    <h2>お問い合わせ</h2>
+    <p>日本窓口担当:音(<a href="https://x.com/l_im_LINLIN" target="_blank" rel="noopener">@l_im_LINLIN</a>)まで<br>XのDMでご連絡ください</p>
+    <a class="btn" href="https://x.com/l_im_LINLIN" target="_blank" rel="noopener">Xを開く</a>
+  </section>
+
+</main>
+
+<footer>
+  <p>#HAPPYLINDAY<br>Made with ♡ by NovA</p>
+</footer>
+
+</body>
+</html>
