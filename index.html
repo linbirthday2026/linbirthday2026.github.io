@@ -120,10 +120,10 @@
   .plan li::before { content: "・"; position: absolute; left: 0; }
 
   /* 写真 */
-  .photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; align-items: start; }
   .photos .ph {
     position: relative; overflow: hidden;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
     display: flex; align-items: center; justify-content: center; text-align: center;
     background: var(--pink-50);
     border: 2px dashed var(--pink-200);
@@ -136,7 +136,20 @@
   .photos a.ph { text-decoration: none; transition: transform .15s; }
   .photos a.ph:hover { transform: translateY(-3px); }
   .photos img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-  @media (max-width: 520px) { .photos { grid-template-columns: 1fr; } }
+  /* 写真が読み込めたら、切り取らずに全体を表示する */
+  .photos .ph.loaded { aspect-ratio: auto; font-size: 0; border-style: solid; padding: 0; }
+  .photos .ph.loaded img { position: static; height: auto; object-fit: initial; }
+
+  .cta { text-align: center; margin: 18px 12px 6px; }
+  .cta .btn {
+    padding: 14px 38px; font-size: 1.05rem; margin-top: 0;
+    background: #00B379;
+    text-shadow: 0 1px 2px rgba(0, 70, 45, 0.35);
+    box-shadow: 0 5px 14px rgba(0, 179, 121, 0.4);
+    border: 2px solid #fff;
+  }
+  .cta .btn:hover { background: #009E6B; }
+  section .cta { margin: 18px 0 4px; }
 
   /* 金額・支払い */
   .chips { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; }
@@ -190,6 +203,8 @@
 
 <p class="period"><span>募集期間:2026年10月17日(土)〜11月20日(金)</span></p>
 
+<p class="cta"><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd4S-F3CsSE79-cDPhhSKo1KR6aw298dQwRviqaxLttxoVPRw/viewform?usp=header" target="_blank" rel="noopener noreferrer">ご支援はこちらから</a></p>
+
 <nav>
   <a href="#about">企画について</a>
   <a href="#status">現在の状況</a>
@@ -214,6 +229,7 @@
     <div class="amount"><span id="amount">0</span><small> 円</small></div>
     <div class="bar" role="img" aria-label="目標95,000円に対する達成率"><i id="barfill" style="width: 0%"></i></div>
     <p class="goal">目標 95,000円 ／ <span class="small"><span id="updated">2026年10月10日</span>現在</span></p>
+    <p class="cta"><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd4S-F3CsSE79-cDPhhSKo1KR6aw298dQwRviqaxLttxoVPRw/viewform?usp=header" target="_blank" rel="noopener noreferrer">ご支援はこちらから</a></p>
   </section>
 
   <section id="plan" class="plan">
@@ -231,9 +247,9 @@
     <!-- result1.jpg / result2.jpg / result3.jpg をGitHubにアップロードすれば、自動で表示されます。
          各写真をタップすると、Xの該当投稿が新しいタブで開きます。 -->
     <div class="photos">
-      <a class="ph" href="https://x.com/LIN1230_CNFC/status/2002923969775878549?s=20" target="_blank" rel="noopener noreferrer">写真1<br>(準備中)<img src="result1.jpg" alt="昨年度の実施実績 1(Xの投稿を開く)" onerror="this.style.display='none'"></a>
-      <a class="ph" href="https://x.com/LIN1230_CNFC/status/2005775380385558841?s=20" target="_blank" rel="noopener noreferrer">写真2<br>(準備中)<img src="result2.jpg" alt="昨年度の実施実績 2(Xの投稿を開く)" onerror="this.style.display='none'"></a>
-      <a class="ph" href="https://x.com/LIN1230_CNFC/status/2005617417997967535?s=20" target="_blank" rel="noopener noreferrer">写真3<br>(準備中)<img src="result3.jpg" alt="昨年度の実施実績 3(Xの投稿を開く)" onerror="this.style.display='none'"></a>
+      <a class="ph" href="https://x.com/LIN1230_CNFC/status/2002923969775878549?s=20" target="_blank" rel="noopener noreferrer">写真1<br>(準備中)<img src="result1.jpg" alt="昨年度の実施実績 1(Xの投稿を開く)" onload="this.parentNode.classList.add('loaded')" onerror="this.style.display='none'"></a>
+      <a class="ph" href="https://x.com/LIN1230_CNFC/status/2005775380385558841?s=20" target="_blank" rel="noopener noreferrer">写真2<br>(準備中)<img src="result2.jpg" alt="昨年度の実施実績 2(Xの投稿を開く)" onload="this.parentNode.classList.add('loaded')" onerror="this.style.display='none'"></a>
+      <a class="ph" href="https://x.com/LIN1230_CNFC/status/2005617417997967535?s=20" target="_blank" rel="noopener noreferrer">写真3<br>(準備中)<img src="result3.jpg" alt="昨年度の実施実績 3(Xの投稿を開く)" onload="this.parentNode.classList.add('loaded')" onerror="this.style.display='none'"></a>
     </div>
   </section>
 
@@ -268,6 +284,7 @@
       <li>銀行振込</li>
     </ul>
     <p class="small" style="margin-top:12px;">※一度ご支援いただいた内容をキャンセルすることはできません。</p>
+    <p class="cta"><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd4S-F3CsSE79-cDPhhSKo1KR6aw298dQwRviqaxLttxoVPRw/viewform?usp=header" target="_blank" rel="noopener noreferrer">ご支援はこちらから</a></p>
   </section>
 
   <section id="trust">
@@ -287,6 +304,8 @@
     <p>日本窓口担当:音(<a href="https://x.com/l_im_LINLIN" target="_blank" rel="noopener">@l_im_LINLIN</a>)まで<br>XのDMでご連絡ください</p>
   </section>
 
+  <p class="cta"><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd4S-F3CsSE79-cDPhhSKo1KR6aw298dQwRviqaxLttxoVPRw/viewform?usp=header" target="_blank" rel="noopener noreferrer">ご支援はこちらから</a></p>
+
 </main>
 
 <footer>
@@ -297,6 +316,10 @@
 <script>
   // status.js の値を画面に反映します(触らなくてOK)
   (function () {
+    // キャッシュ済みの写真は onload が先に終わることがあるため、ここでも確認する
+    document.querySelectorAll(".photos img").forEach(function (im) {
+      if (im.complete && im.naturalWidth) im.parentNode.classList.add("loaded");
+    });
     var GOAL = 95000;
     var amt = (typeof SUPPORT_AMOUNT === "number") ? SUPPORT_AMOUNT : 0;
     document.getElementById("amount").textContent = amt.toLocaleString("ja-JP");
