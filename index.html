@@ -8,6 +8,10 @@
 <meta property="og:title" content="#HAPPYLINDAY センイルプロジェクト2026">
 <meta property="og:description" content="支援金ご協力のお願い|期間:2026年10月17日(土)〜11月20日(金)">
 <meta property="og:image" content="top.jpg">
+<script>
+  // ページを開いたとき、前回見ていた位置に戻らず、必ずトップから表示する
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
@@ -318,6 +322,12 @@
 <script>
   // status.js の値を画面に反映します(触らなくてOK)
   (function () {
+    // URLに「#」付きの指定がなければ、トップへ(アニメーションなしで即座に)
+    function goTop() { if (!location.hash) window.scrollTo({ top: 0, left: 0, behavior: "instant" }); }
+    goTop();
+    window.addEventListener("load", goTop);
+    window.addEventListener("pageshow", goTop);
+
     // キャッシュ済みの写真は onload が先に終わることがあるため、ここでも確認する
     document.querySelectorAll(".photos img").forEach(function (im) {
       if (im.complete && im.naturalWidth) im.parentNode.classList.add("loaded");
