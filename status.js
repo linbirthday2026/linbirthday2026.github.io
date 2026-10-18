@@ -2,4 +2,4 @@
 // ・数字は半角で、カンマ(,)は入れません  例: 12500
 // ・日付は " " の中を書き換えます
 const SUPPORT_AMOUNT = 0;
-const UPDATED_DATE = "2026年10月10日";
+const UPDATED_DATE = "2026年10月18日";
