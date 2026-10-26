@@ -1,5 +1,5 @@
 // 毎日の更新は、この2行だけ書き換えます。
 // ・数字は半角で、カンマ(,)は入れません  例: 12500
 // ・日付は " " の中を書き換えます
-const SUPPORT_AMOUNT = 0;
-const UPDATED_DATE = "2026年10月18日";
+const SUPPORT_AMOUNT = 3000;
+const UPDATED_DATE = "2026年10月25日";
